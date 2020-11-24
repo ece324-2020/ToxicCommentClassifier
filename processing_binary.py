@@ -15,20 +15,18 @@ import datetime, time
 
 def main(args):
     COMMENT_TEXT    = data.Field(sequential=True,lower=True, tokenize='spacy', include_lengths=True)
-    TOXIC           = data.Field(sequential=False, use_vocab=False)
-    SEVERE_TOXIC    = data.Field(sequential=False, use_vocab=False)
+    # TOXIC           = data.Field(sequential=False, use_vocab=False)
+    # SEVERE_TOXIC    = data.Field(sequential=False, use_vocab=False)
     OBSCENE         = data.Field(sequential=False, use_vocab=False)
-    THREAT          = data.Field(sequential=False, use_vocab=False)
-    INSULT          = data.Field(sequential=False, use_vocab=False)
-    IDENTITY_HATE   = data.Field(sequential=False, use_vocab=False)
+    # THREAT          = data.Field(sequential=False, use_vocab=False)
+    # INSULT          = data.Field(sequential=False, use_vocab=False)
+    # IDENTITY_HATE   = data.Field(sequential=False, use_vocab=False)
 
-    # for path, do prcessed_data/binary_data/multi_loose_data/multi_strict_data
     train_data, val_data, test_data = data.TabularDataset.splits(
-            path='processed_data/', train='train.csv',
+            path='binary_data/', train='train.csv',
             validation='valid.csv', test='test.csv', format='csv',
-            skip_header=True, fields=[('id', None), ('comment_text', COMMENT_TEXT), ('toxic', TOXIC), ('severe_toxic', SEVERE_TOXIC), ('obscene', OBSCENE), ('threat', THREAT), ('insult', INSULT), ('identity_hate', IDENTITY_HATE)])
-# for binary
-# [('id', None), ('comment_text', COMMENT_TEXT), ('toxic', None), ('severe_toxic', None), ('obscene', OBSCENE), ('threat', None), ('insult', None), ('identity_hate', None)]
+            skip_header=True, fields=[('id', None), ('comment_text', COMMENT_TEXT), ('toxic', None), ('severe_toxic', None), ('obscene', OBSCENE), ('threat', None), ('insult', None), ('identity_hate', None)])
+            
     train_iter, val_iter, test_iter = data.BucketIterator.splits(
         (train_data, val_data, test_data), batch_sizes=(args.batch_size, args.batch_size, args.batch_size),
         sort_key=lambda x: len(x.text), device=None, sort_within_batch=True, repeat=False)
