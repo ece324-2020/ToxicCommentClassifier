@@ -9,7 +9,8 @@ There are multiple datasets created for prototyping and testing, each catered to
 2. binary_data: balanced set between good and obsence comments to test out binary classification (8449 each). Outputted with preprocessing_binary.py.
 3. multi_strict_data: unbalanced set between all the bad comments that are labelled as a single category only, with an equal amount of good comments. Some bad comment categories have thousands of examples, while some have none. Outputted with preprocessing_multi_strict.py.
 4. multi_loose_data: balanced set between all bad comment categories with 478 comments in each category. There are 478 good comments also, which is lower than the datasets before. Because the model gets 50% accuracyguesses all comments are good before, compared to ~14% now. This is generated for multi-class classification. Outputted with preprocessing_multi_loose.py.
-5. future dataset coming with balanced multi-label classes.
+5. multi_loose_large_data: similar to dataset 4, but with 1000 in each category (an attempt to improve accuracy with more data). However, the threat comments have to be repeated because there are only 478 distinct comments labelled as threat. Outputted with preprocessing_multi_loose_large.py.
+6. future dataset coming with balanced multi-label classes.
 
 After, the data can be fed into a globe embedding layer using processing.py and processing_binary.py. The former can be used for datasets 1, 3, and 4 (with different paths for data), while the latter is only for dataset 2. The piece of code is copied into the model files for integration. 
 
