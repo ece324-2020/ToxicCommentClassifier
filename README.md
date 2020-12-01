@@ -25,5 +25,36 @@ In the end, two datasets were used: processed_data_aug_v2 and binary_data^6_aug_
 After, the data can be fed into a globe embedding layer using processing.py, processing_binary.py, or processing_binary^6.py base on the data, and they are converted into batcheed vocab vectors.
 
 ## The Model ##
+Here's a link to the google drive folder that contains all the models and vocabs. Models in folder that contains the word "Aug" are the best performed models.
+https://drive.google.com/drive/folders/1nSGNEDN2mS2csaRHbWHTHipvGcxatwP7?usp=sharing 
+### Baseline Model ###
+Each word is tokenized, and then converted to a GloVe embedding vector. The average vector for the sentence is passed through a fully connected layer which outputs a prediction.
+
+### Main Model ###
+The main model we used were called "CNN_LSTM.py"
+It has 2 Conv2d layer, 2 maxpool layers, 1 LSTM layer and 1 fully connected layer
+
+There are three approaches we experimented with to train the model:
+#### apporach 1 ####
+General dataset with 6 classes --> 1 CNN_LSTM classifier --> 6 outputs
+
+#### apporach 2 ####
+General dataset with 6 classes --> 6 CNN_LSTM classifier --> each gives 1 outputs
+
+#### apporach 3 (best approach) ####
+6 sub-datasets each with 1 class --> 6 CNN_LSTM classifier --> each gives 1 outputs
 
 ## The Results ##
+#### Baseline Model ####
+train loss: 0.617, train acc: 0.797, test loss: 0.619, test acc 0.794
+
+#### apporach 1 ####
+train loss: 0.612, train acc: 0.812,  test loss: 0.618, test acc 0.806 
+
+#### apporach 2 ####
+train loss: 0.612,train acc: 0.900,  test loss: 0.537, test acc 0.879 
+
+#### apporach 3 (best approach) ####
+train loss: 0.510,train acc: 0.986,  test loss: 0.528, test acc 0.953  
+
+
