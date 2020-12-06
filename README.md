@@ -31,7 +31,7 @@ https://drive.google.com/drive/folders/1nSGNEDN2mS2csaRHbWHTHipvGcxatwP7?usp=sha
 Each word is tokenized, and then converted to a GloVe embedding vector. The average vector for the sentence is passed through a fully connected layer which outputs a prediction.
 
 ### Main Model ###
-The main model we used were called "CNN_LSTM.py"
+The main model we used were called "CNN_LSTM_2_conv.py"
 It has 2 Conv2d layer, 2 maxpool layers, 1 LSTM layer and 1 fully connected layer
 
 There are three approaches we experimented with to train the model:
