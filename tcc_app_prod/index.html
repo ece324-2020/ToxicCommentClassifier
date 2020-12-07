@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <meta content="images/logo.png" itemprop="image">
+  <link rel='shortcut icon' type="image/png" href='/static/images/logo.png' />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <!-- <link rel="stylesheet" href="/static/css/animate.min.css"> -->
+  <title>Toxic Comment Classifier</title>
+</head>
+
+<body>
+
+  <form action="/">
+    <div class="animated fadeIn main"><br>
+      <h1>Toxic Comment Classifier</h1>
+      <p>Enter a comment:</p>
+
+      <div class="inputWrapper">
+        <input id="text" align="center" type="text" name="text_in" placeholder="enter comment" required>
+        <button id="submit-btn" type="submit" value="Submit">Submit</button>
+      </div><br>
+
+      <p>
+        {{ header_comment }} <!-- Displays "Review:" when a review has been submitted" !-->
+        <br>
+        {{ text_in }} <!-- Displays the review entered by the user below review header!-->
+        <br>
+        <br>
+        {{ header_prediction }} <!-- Displays "Sentiment:" above a review that has been submitted and sentiment determined" !-->
+        <br>
+        {{ toxic_prediction }} <!-- Displays the model predicted sentiment when a review has been submitted" !-->
+        <br>
+        {{ severe_toxic_prediction }} <!-- Displays the model predicted sentiment when a review has been submitted" !-->
+        <br>
+        {{ obscene_prediction }} <!-- Displays the model predicted sentiment when a review has been submitted" !-->
+        <br>
+        {{ insult_prediction }} <!-- Displays the model predicted sentiment when a review has been submitted" !-->
+        <br>
+        {{ threat_prediction }} <!-- Displays the model predicted sentiment when a review has been submitted" !-->
+        <br>
+        {{ identity_hate_prediction }} <!-- Displays the model predicted sentiment when a review has been submitted" !-->
+      </p>
+    </div>
+  </form>
+</body>
+
+</html>
